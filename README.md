@@ -102,8 +102,7 @@ Navigate to `http://localhost:8080` in your browser.
 
 - **Backend**: Node.js, Express, Axios
 - **Frontend**: Vanilla HTML, CSS, JavaScript
-- **Design**: Modern dark theme with glassmorphism
 
 ## License
 
-MIT
+[MIT](https://github.com/tyagiapoorv/stats/blob/main/LICENSE)

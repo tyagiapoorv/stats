@@ -4,7 +4,7 @@
  */
 
 // Configuration - Update this URL after deploying backend to Vercel
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://stats-nine-indol.vercel.app/api';
 const GITHUB_USERNAME = 'tyagiapoorv';
 
 // DOM Elements
