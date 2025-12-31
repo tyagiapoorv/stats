@@ -14,7 +14,7 @@ app.use(express.json());
 app.use('/api/stats', statsRoutes);
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
@@ -25,6 +25,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 GitHub Stats API running on http://localhost:${PORT}`);
+  console.log(`🚀 GitHub Stats API running on ${PORT}`);
   console.log(`   Username: ${process.env.GITHUB_USERNAME || 'Not configured'}`);
 });
