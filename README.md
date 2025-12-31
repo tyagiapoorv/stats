@@ -23,10 +23,9 @@ github-stats-dashboard/
 │       ├── routes/stats.js    # API endpoints
 │       ├── services/github.js # GitHub API integration
 │       └── utils/cache.js     # In-memory cache
-├── frontend/
-│   ├── index.html             # Dashboard UI
-│   ├── index.css              # Premium styling
-│   └── app.js                 # Frontend logic
+├── app.js                     # Frontend logic
+├── index.html                 # Dashboard UI
+├── index.css                  # Premium styling
 └── README.md
 ```
 
@@ -59,15 +58,14 @@ npm run dev
 
 ### 3. Run Frontend
 
-You can serve the frontend using any static file server:
+You can serve the frontend from the root directory:
 
 ```bash
-# Option 1: Using Python
-cd frontend
-python -m http.server 8080
+# Option 1: Using Node.js serve
+npx serve . -p 8080
 
-# Option 2: Using Node.js serve
-npx serve frontend -p 8080
+# Option 2: Using Python
+python -m http.server 8080
 
 # Option 3: Using VS Code Live Server extension
 ```
@@ -90,15 +88,26 @@ Navigate to `http://localhost:8080` in your browser.
 
 ### Frontend (GitHub Pages)
 
-1. Update `frontend/app.js`:
+1. Update `app.js`:
    ```javascript
    const API_BASE_URL = 'https://your-project.vercel.app/api';
    ```
 2. In your GitHub repo settings, go to **Pages**
-3. Select the branch and folder (e.g., `main` branch, `/frontend` folder if possible, or deploy from a separate branch)
+3. Select the branch (e.g., `main`) and root folder `/`
 4. Your site will be live at `https://username.github.io/repo-name`
 
-## Technologies
+## API Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /api/stats/aggregate` | Aggregate stats across all contributed repos |
+| `GET /api/stats/contributed-repos` | List repositories user has contributed to |
+| `GET /api/stats/repos` | List all repositories |
+| `GET /api/stats/prs?repo=<name>` | Get PR statistics for specific repo |
+| `GET /api/stats/merge-times?repo=<name>` | Get merge time metrics for specific repo |
+| `GET /api/stats/overview?repo=<name>` | Get combined stats for specific repo |
+| `GET /health` | Health check |
+
 
 - **Backend**: Node.js, Express, Axios
 - **Frontend**: Vanilla HTML, CSS, JavaScript

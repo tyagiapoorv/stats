@@ -21,7 +21,7 @@ router.get('/aggregate', async (req, res, next) => {
                 unit: 'hours',
                 ...mergeMetrics
             },
-            contributedRepos: contributedRepos.slice(0, 10) // Top 10 repos
+            contributedRepos: contributedRepos.slice(0, 15) // Top 15 repos
         });
     } catch (error) {
         next(error);
