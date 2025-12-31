@@ -8,7 +8,7 @@ A beautiful, modern dashboard to view your GitHub PR statistics and merge time m
 - ⏱️ **Merge Time Metrics** - Track Average, P50, P95, and P99 merge times
 - 📈 **Visual Chart** - See merge time distribution at a glance
 - 🎨 **Premium Dark Theme** - Glassmorphism effects and smooth animations
-- 🔄 **Caching** - 5-minute cache to avoid GitHub rate limits
+- 🔄 **Caching** - 3 Hours cache to avoid GitHub rate limits
 - 📱 **Responsive Design** - Works on desktop and mobile
 
 ## Project Structure
@@ -17,7 +17,6 @@ A beautiful, modern dashboard to view your GitHub PR statistics and merge time m
 github-stats-dashboard/
 ├── backend/
 │   ├── package.json
-│   ├── .env.example
 │   └── src/
 │       ├── index.js           # Express server
 │       ├── routes/stats.js    # API endpoints
@@ -41,9 +40,6 @@ github-stats-dashboard/
 
 ```bash
 cd backend
-
-# Copy environment template
-cp .env.example .env
 
 # Edit .env and add your token
 # GITHUB_TOKEN=your_token_here
@@ -89,6 +85,7 @@ Navigate to `http://localhost:8080` in your browser.
 ### Frontend (GitHub Pages)
 
 1. Update `app.js`:
+
    ```javascript
    const API_BASE_URL = 'https://your-project.vercel.app/api';
    ```
@@ -106,7 +103,7 @@ Navigate to `http://localhost:8080` in your browser.
 | `GET /api/stats/prs?repo=<name>` | Get PR statistics for specific repo |
 | `GET /api/stats/merge-times?repo=<name>` | Get merge time metrics for specific repo |
 | `GET /api/stats/overview?repo=<name>` | Get combined stats for specific repo |
-| `GET /health` | Health check |
+| `GET /` | Health check |
 
 
 - **Backend**: Node.js, Express, Axios
@@ -114,4 +111,4 @@ Navigate to `http://localhost:8080` in your browser.
 
 ## License
 
-[MIT](https://github.com/tyagiapoorv/stats/blob/main/LICENSE)
+- [MIT](https://github.com/tyagiapoorv/stats/blob/main/LICENSE)

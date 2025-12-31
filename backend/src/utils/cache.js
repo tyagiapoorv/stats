@@ -2,7 +2,7 @@
  * Simple in-memory cache with TTL
  */
 class Cache {
-    constructor(ttlMs = 5 * 60 * 1000) { // Default 5 minutes
+    constructor(ttlMs = 180 * 60 * 1000) { // Default 3 hours
         this.cache = new Map();
         this.ttl = ttlMs;
     }
